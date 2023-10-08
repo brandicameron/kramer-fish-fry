@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;900&display=swap');
+
+:root {
+  --primary: #1185d8;
+  --secondary: #bedff4;
+  --black: #000000;
+  --white: #f1f1f1;
+  --rounded: 0.25rem;
+  --textShadow: 1px 1.5px #ffffff70;
+  --sectionMaxWidth: 775px;
+  --sectionMaxWidthLg: 1100px;
+  --sectionMaxWidthXl: 1400px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  /* allows 100vh to work properly on android phones, while still applying the fill available fix on ios */
+  min-height: -webkit-fill-available;
+}
+
+body {
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Londrina Solid', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+a,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  text-align: center;
+  background-color: transparent;
+  outline-color: transparent;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 2;
+}
+
+img {
+  object-fit: cover;
+}
+
+img::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  content: 'Sorry, this image is not available :(';
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: 80%;
+  padding: 1rem;
+  background-color: white;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 0;
+}
+
+/* Utility */
+
+.flex-row {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.section-x-padding {
+  padding-inline: 1rem;
+}
+
+.font-default {
+  font-family: 'Public Sans', sans-serif;
+}
