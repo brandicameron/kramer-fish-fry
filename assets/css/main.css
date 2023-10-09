@@ -6,11 +6,12 @@
   --secondary: #bedff4;
   --black: #000000;
   --white: #f1f1f1;
-  --rounded: 0.25rem;
   --textShadow: 1px 1.5px #ffffff70;
   --sectionMaxWidth: 775px;
   --sectionMaxWidthLg: 1100px;
   --sectionMaxWidthXl: 1400px;
+  --decorativeFont: 'Londrina Solid', sans-serif;
+  --rounded: 0.2rem;
 }
 
 *,

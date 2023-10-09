@@ -43,7 +43,7 @@
 }
 .header {
   position: relative;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   padding-block: 2rem;
 }
 

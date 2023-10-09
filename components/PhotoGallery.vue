@@ -1,6 +1,14 @@
 <template>
   <section class="photo-gallery section-x-padding">
-    <h1 class="date"><span class="month">Sept 03</span> <span class="year">2023</span></h1>
+    <nav class="sidebar">
+      <button class="button">
+        <span class="month">Sept 03</span> <span class="year">2023</span>
+      </button>
+      <button class="button">
+        <span class="month">Sept 02</span> <span class="year">2007</span>
+      </button>
+    </nav>
+
     <ul class="photo-gallery-thumbs">
       <li v-for="image in images" :key="image">
         <button class="image-button">
@@ -26,17 +34,30 @@ console.log(images);
 
 <style scoped>
 .photo-gallery {
-  max-width: var(--sectionMaxWidthXl);
-  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(150px, 250px) 1fr;
+  gap: 1rem;
 }
 
-.date {
+.sidebar {
+  padding: 2rem 1rem;
+  border: 2px solid black;
+  border-radius: var(--borderRadius);
+}
+
+.button {
   display: flex;
   flex-direction: column;
   line-height: 0.85;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 3rem;
+  font-family: var(--decorativeFont);
+  margin: 0 auto 2rem auto;
+}
+
+.button {
+  border-bottom: 1px solid;
+  padding-bottom: 2rem;
 }
 
 .month {
@@ -48,26 +69,26 @@ console.log(images);
 }
 .photo-gallery-thumbs {
   column-count: 4;
-  /* max-width: var(sectionMaxWidthXl); */
-  /* display: grid;
+  /* max-width: var(sectionMaxWidthXl);
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem; */
 }
 
 .photo {
-  /* width: 150px;
-  height: 150px;
+  /* width: 250px;
+  height: 250px;
   aspect-ratio: square;
   object-fit: cover; */
   width: 100%;
   max-width: 350px;
   height: auto;
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
 }
 
 .image-button:focus-visible {
   filter: drop-shadow(5px 5px 10px rgba(0 0 0 / 30%));
   border: 4px solid var(--primary);
-  border-radius: 0.25rem;
+  border-radius: var(--rounded);
 }
 </style>

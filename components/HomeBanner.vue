@@ -1,17 +1,17 @@
 <template>
   <section class="banner">
     <div class="header">
-      <h1 class="title">
-        <span class="kramer">Kramer</span>
-        <span class="fish-fry">Fish Fry</span>
+      <h1 class="title section-x-padding" aria-label="Kramer Fish Fry">
+        <img src="../assets/images/kramer-fish-fry.svg" alt="" />
       </h1>
       <div class="water"></div>
     </div>
 
-    <h2 class="most-recent">
-      <span class="last-held">Last held</span>
-      <span class="date">09.03.23</span>
-      <span class="city">Vincennes</span>
+    <h2
+      class="last-held section-x-padding"
+      aria-label="Last held September 03, 2023 in Vincennes, Indiana."
+    >
+      <img src="../assets/images/last-held.svg" alt="" />
     </h2>
 
     <section class="banner-content section-x-padding">
@@ -57,6 +57,7 @@
   width: 100%;
   text-align: center;
   position: relative;
+  margin-top: -2rem;
 }
 
 .water {
@@ -67,7 +68,7 @@
   background-image: url('../assets/images/water.png');
   background-repeat: repeat-x;
   background-position: bottom;
-  animation: float 10s ease-in-out infinite;
+  animation: float 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
 }
 
 @keyframes float {
@@ -88,10 +89,8 @@
   }
 }
 
-.title {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.8;
+.title img {
+  max-width: 850px;
 }
 
 .kramer {
@@ -101,46 +100,14 @@
   font-size: clamp(6rem, 15.5vw, 15.875rem);
 }
 
-.most-recent {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.9;
-  text-align: center;
-  margin: 9rem 0;
-}
-
 .last-held {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  border: 2px solid;
-  padding: 0.25rem 2rem;
-  border-radius: 0.25rem;
-  margin: 0 auto 0.5rem auto;
-  width: fit-content;
-}
-
-.date {
-  /* font-size: clamp(6rem, 8vw, 8rem); */
-  font-size: clamp(6rem, 8vw, 7.5rem);
-}
-.city {
-  position: relative;
-  /* font-size: clamp(5rem, 6vw, 8rem); */
-  font-size: clamp(5rem, 6vw, 6rem);
-  margin-top: 1rem;
-}
-
-.city::before {
-  position: absolute;
-  top: -0.75rem;
-  left: 0;
-  content: '';
+  max-width: 425px;
   width: 100%;
-  height: 5px;
-  background-color: black;
+  margin: 2rem 0 10rem 0;
+}
+
+.last-held img {
+  max-width: 425px;
 }
 
 .banner-content {
@@ -198,7 +165,9 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .most-recent {
+  .last-held {
+    max-width: 425px;
+    width: 100%;
     margin: 1rem 0 2rem 0;
   }
   .banner-content {
@@ -221,6 +190,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .header {
+    margin-top: 0;
+  }
   .water {
     top: -120px;
     background-position: top;
