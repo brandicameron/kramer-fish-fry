@@ -1,6 +1,8 @@
 <template>
-  <HomeBanner />
-  <!-- <HistorySection /> -->
+  <div>
+    <HomeBanner />
+    <!-- <HistorySection /> -->
+  </div>
 </template>
 
 <script setup></script>
