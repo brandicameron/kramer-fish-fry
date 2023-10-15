@@ -1,5 +1,7 @@
 <template>
-  <PhotoGallery />
+  <div>
+    <PhotoGallery />
+  </div>
 </template>
 
 <script setup></script>

@@ -2,10 +2,10 @@
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
-  // modules: ['@nuxt/image'],
-  // image: {
-  //   format: ['webp', 'jpg', 'png'],
-  // },
+  modules: ['@nuxt/image'],
+  image: {
+    format: ['webp', 'jpg', 'png'],
+  },
   app: {
     head: {
       htmlAttrs: {

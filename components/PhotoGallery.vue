@@ -1,6 +1,7 @@
 <template>
   <main class="photo-gallery-page">
     <h1 class="heading">Photo Gallery</h1>
+
     <div class="photo-gallery section-x-padding">
       <nav class="sidebar">
         <button class="nav-button" @click="updateYear(2023)">
@@ -11,17 +12,18 @@
         </button>
       </nav>
 
-      <!-- :src="`_nuxt${image}`" -->
-      <!-- <img src="/images/2023/IMG_0882.jpg" alt="" /> -->
       <TransitionGroup name="fade" tag="ul" class="photo-gallery-list">
         <li v-for="(image, index) in images" :key="index">
           <button class="image-button">
-            <img
-              :src="`/images/${selectedYear}/${image}`"
-              alt="Kramer Fish Fry 2023"
-              height="3000"
-              width="4000"
+            <NuxtImg
               class="photo"
+              :src="`/images/${selectedYear}/${image}`"
+              :alt="`Kramer Fish Fry ${selectedYear}`"
+              quality="80"
+              width="350"
+              height="263"
+              fit="outside"
+              loading="lazy"
             />
           </button>
         </li>
@@ -46,9 +48,6 @@ const imageFolder = computed(() => {
 });
 
 const images = computed(() => Object.keys(imageFolder.value).map((key) => key.split('/')[4]));
-
-// console.log(images.value);
-// const images = computed(() => Object.keys(imageFolder.value).map((key) => key));
 </script>
 
 <style scoped>
@@ -71,9 +70,10 @@ const images = computed(() => Object.keys(imageFolder.value).map((key) => key.sp
   margin-bottom: 5rem;
 }
 
-.photo-gallery-page h1 {
+.heading {
   text-align: center;
   margin-bottom: 2rem;
+  line-height: 1;
 }
 .photo-gallery {
   display: grid;
@@ -86,7 +86,7 @@ const images = computed(() => Object.keys(imageFolder.value).map((key) => key.sp
 
 .sidebar {
   padding: 2rem 0.5rem;
-  border: 1.5px solid black;
+  border: 1.5px solid #aaaaaa;
   border-radius: var(--rounded);
   min-height: calc(100vh - 300px);
 }
@@ -104,6 +104,7 @@ const images = computed(() => Object.keys(imageFolder.value).map((key) => key.sp
 
 .month {
   font-size: 3.5rem;
+  white-space: nowrap;
 }
 
 .year {
@@ -127,5 +128,36 @@ const images = computed(() => Object.keys(imageFolder.value).map((key) => key.sp
 .image-button:focus-visible .photo {
   filter: drop-shadow(5px 5px 10px rgba(0 0 0 / 50%));
   border-radius: var(--rounded);
+}
+
+@media screen and (max-width: 600px) {
+  .heading {
+    margin-bottom: 0;
+  }
+  .photo-gallery {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sidebar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border: none;
+    min-height: 0;
+    height: 90px;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  .nav-button {
+    margin: 0 auto;
+    transform: scale(0.5);
+  }
+
+  .photo-gallery-list {
+    column-count: 2;
+  }
 }
 </style>

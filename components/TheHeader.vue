@@ -1,7 +1,13 @@
 <template>
   <header class="header">
     <NuxtLink to="/" class="logo">
-      <img src="/images/fish.png" alt="Kramer Fish Fry Home" width="212" height="121" />
+      <img
+        class="logo-img"
+        src="/images/fish.png"
+        alt="Kramer Fish Fry Home"
+        width="212"
+        height="121"
+      />
     </NuxtLink>
 
     <nav class="nav">
@@ -63,6 +69,15 @@
 @media screen and (max-width: 600px) {
   .nav {
     display: none;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .logo-img {
+    width: 100%;
+    height: auto;
   }
 }
 </style>

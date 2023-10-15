@@ -59,7 +59,7 @@ h3 {
 }
 
 h1 {
-  font-size: 3.5vw;
+  font-size: clamp(3rem, 3.5vw, 3.75rem);
 }
 
 a,
