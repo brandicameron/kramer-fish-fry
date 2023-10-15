@@ -11,11 +11,13 @@
         </button>
       </nav>
 
+      <!-- :src="`_nuxt${image}`" -->
+      <!-- <img src="/images/2023/IMG_0882.jpg" alt="" /> -->
       <TransitionGroup name="fade" tag="ul" class="photo-gallery-list">
-        <li v-for="image in images" :key="image">
+        <li v-for="(image, index) in images" :key="index">
           <button class="image-button">
             <img
-              :src="`_nuxt${image}`"
+              :src="`/images/${selectedYear}/${image}`"
               alt="Kramer Fish Fry 2023"
               height="3000"
               width="4000"
@@ -35,15 +37,18 @@ const updateYear = (year: number) => (selectedYear.value = year);
 const imageFolder = computed(() => {
   switch (selectedYear.value) {
     case 2023:
-      return import.meta.glob('/assets/images/2023/*.jpg');
+      return import.meta.glob('../assets/images/2023/*.jpg');
     case 2006:
-      return import.meta.glob('/assets/images/2006/*.jpg');
+      return import.meta.glob('../assets/images/2006/*.jpg');
     default:
-      return import.meta.glob('/assets/images/2023/*.jpg');
+      return import.meta.glob('../assets/images/2023/*.jpg');
   }
 });
 
-const images = computed(() => Object.keys(imageFolder.value).map((key) => key));
+const images = computed(() => Object.keys(imageFolder.value).map((key) => key.split('/')[4]));
+
+// console.log(images.value);
+// const images = computed(() => Object.keys(imageFolder.value).map((key) => key));
 </script>
 
 <style scoped>

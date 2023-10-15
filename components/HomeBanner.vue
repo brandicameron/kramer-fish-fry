@@ -2,7 +2,7 @@
   <section class="banner">
     <div class="header">
       <h1 class="title section-x-padding" aria-label="Kramer Fish Fry">
-        <img src="../assets/images/kramer-fish-fry.svg" alt="" />
+        <img src="/images/kramer-fish-fry.svg" alt="" />
       </h1>
       <div class="water"></div>
     </div>
@@ -11,7 +11,7 @@
       class="last-held section-x-padding"
       aria-label="Last held September 03, 2023 in Vincennes, Indiana."
     >
-      <img src="../assets/images/last-held.svg" alt="" />
+      <img src="/images/last-held.svg" alt="" />
     </h2>
 
     <section class="banner-content section-x-padding">
@@ -31,9 +31,9 @@
       </div>
 
       <div class="gilbert">
-        <img src="../assets/images/smoke.gif" alt="" class="smoke" />
+        <img src="/images/smoke.gif" alt="" class="smoke" />
         <img
-          src="../assets/images/gilbert.png"
+          src="/images/gilbert.png"
           alt="Alois Kramer"
           class="gilbert-img"
           width="420"
@@ -65,7 +65,7 @@
   width: 100%;
   height: 100%;
   top: 50px;
-  background-image: url('../assets/images/water.png');
+  background-image: url('/images/water.png');
   background-repeat: repeat-x;
   background-position: bottom;
   animation: float 10s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
@@ -152,7 +152,7 @@
 
 .gilbert::before {
   position: absolute;
-  content: url('../assets/images/gilbert-name.svg');
+  content: url('/images/gilbert-name.svg');
   width: 25%;
   top: 35%;
   left: 5%;

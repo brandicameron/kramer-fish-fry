@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <NuxtLink to="/" class="logo">
-      <img src="../assets/images/fish.png" alt="Kramer Fish Fry Home" width="212" height="121" />
+      <img src="/images/fish.png" alt="Kramer Fish Fry Home" width="212" height="121" />
     </NuxtLink>
 
     <nav class="nav">
