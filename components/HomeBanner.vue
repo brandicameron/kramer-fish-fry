@@ -1,16 +1,15 @@
 <template>
   <section class="banner">
     <div class="header">
-      <h1 class="title section-x-padding" aria-label="Kramer Fish Fry">
+      <h1 class="title section-x-padding">
+        <span class="sr-only">Kramer Fish Fry</span>
         <img src="/images/kramer-fish-fry.svg" alt="" />
       </h1>
       <div class="water"></div>
     </div>
 
-    <h2
-      class="last-held section-x-padding"
-      aria-label="Last held September 03, 2023 in Vincennes, Indiana."
-    >
+    <h2 class="last-held section-x-padding">
+      <span class="sr-only">Last held September 03, 2023 in Vincennes, Indiana.</span>
       <img src="/images/last-held.svg" alt="" />
     </h2>
 
@@ -57,14 +56,13 @@
   width: 100%;
   text-align: center;
   position: relative;
-  margin-top: -2rem;
 }
 
 .water {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 50px;
+  top: 30px;
   background-image: url('/images/water.png');
   background-repeat: repeat-x;
   background-position: bottom;
@@ -75,13 +73,11 @@
   0% {
     transform: translateY(15px) rotate(0);
   }
-  25% {
+  33% {
     transform: translateY(0) rotate(0.75deg);
   }
-  50% {
-    transform: translateY(0) rotate(0);
-  }
-  75% {
+
+  66% {
     transform: translateY(0) rotate(-0.75deg);
   }
   100% {
@@ -90,7 +86,7 @@
 }
 
 .title img {
-  max-width: 850px;
+  max-width: 800px;
 }
 
 .kramer {
@@ -103,7 +99,7 @@
 .last-held {
   max-width: 425px;
   width: 100%;
-  margin: 2rem 0 10rem 0;
+  margin: 1.5rem 0 10rem 0;
 }
 
 .last-held img {
@@ -111,7 +107,12 @@
 }
 
 .banner-content {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .banner-content > * {
@@ -136,13 +137,15 @@
   line-height: 2.25;
   max-width: 550px;
   margin: 1rem 0 3rem 0;
+  padding-right: 1rem;
 }
 
 .gilbert {
-  position: relative;
+  position: absolute;
+  right: -9vw;
   width: 30vw;
-  max-width: 420px;
-  margin-top: -5rem;
+  max-width: 400px;
+  top: -15rem;
 }
 
 .gilbert img {
@@ -154,8 +157,8 @@
   position: absolute;
   content: url('/images/gilbert-name.svg');
   width: 25%;
-  top: 35%;
-  left: 5%;
+  top: 45%;
+  right: 5%;
   transform: rotate(-20deg);
 }
 
@@ -180,12 +183,15 @@
   }
 
   .gilbert {
+    position: relative;
     width: 90vw;
+    top: 0;
+    right: unset;
     margin: 0 auto;
   }
 
   .attendance {
-    padding-block: 1rem 1rem;
+    padding-right: unset;
   }
 }
 
@@ -194,7 +200,7 @@
     margin-top: 0;
   }
   .water {
-    top: -120px;
+    top: 100px;
     background-position: top;
   }
 }
