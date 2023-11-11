@@ -47,6 +47,7 @@
         :src="selectedImg?.src"
         :alt="selectedImg?.alt"
         quality="80"
+        sizes="500px sm:1800"
       />
       <button @click="handleCloseModal" class="close-modal-button">
         <span class="sr-only">Close image modal</span>
