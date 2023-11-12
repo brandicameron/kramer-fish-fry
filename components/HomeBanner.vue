@@ -165,6 +165,7 @@
 .smoke {
   position: absolute;
   top: 20%;
+  filter: brightness(1.25);
 }
 
 @media screen and (max-width: 1024px) {
@@ -202,6 +203,7 @@
   .water {
     top: 100px;
     background-position: top;
+    animation: float 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
   }
 }
 </style>

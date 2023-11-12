@@ -33,6 +33,7 @@
                 height="263"
                 fit="outside"
                 sizes="175px sm:350px"
+                format="webp"
               />
             </button>
           </li>
@@ -41,14 +42,18 @@
     </section>
 
     <section class="image-modal" v-if="showImageModal">
+      <div @click="handleCloseModal" class="modal-backdrop"></div>
       <NuxtImg
-        ref="modalTarget"
         class="image-modal-image"
         :src="selectedImg?.src"
         :alt="selectedImg?.alt"
         quality="80"
-        sizes="500px sm:1800"
+        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+        format="webp"
       />
+      <!-- sizes="xs:500px sm:1800px" -->
+      <!-- sizes="300px xs:500px sm:1800px" -->
+      <!-- sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw" -->
       <button @click="handleCloseModal" class="close-modal-button">
         <span class="sr-only">Close image modal</span>
       </button>
@@ -80,7 +85,6 @@
 </template>
 
 <script lang="ts" setup>
-// import { onClickOutside } from '@vueuse/core';
 const selectedYear = ref(2023);
 const updateYear = (year: number) => (selectedYear.value = year);
 
@@ -115,7 +119,6 @@ const selectedImg = computed(() =>
 );
 
 const showImageModal = ref(false);
-const modalTarget = ref(null);
 
 const handleOpenModal = (selectedImgIndex: number) => {
   imageIndex.value = selectedImgIndex;
@@ -140,7 +143,11 @@ const handlePreviousImage = () => {
 
 const handleCloseModal = () => (showImageModal.value = false);
 
-// onClickOutside(modalTarget, () => (showImageModal.value = false));
+watch(showImageModal, () => {
+  showImageModal.value
+    ? (document.body.style.overflow = 'hidden')
+    : (document.body.style.overflow = 'auto');
+});
 </script>
 
 <style scoped>
@@ -207,17 +214,18 @@ const handleCloseModal = () => (showImageModal.value = false);
   background-color: #c8e3f2;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
-  width: 135px;
+  width: 130%;
   z-index: -1;
 }
 .month {
-  font-size: 2rem;
+  font-size: 1.5rem;
   white-space: nowrap;
 }
 
 .year {
-  font-size: 3.25rem;
+  font-size: 2.5rem;
 }
+
 .photo-gallery-list {
   -webkit-column-count: 4;
   -moz-column-count: 4;
@@ -247,8 +255,14 @@ const handleCloseModal = () => (showImageModal.value = false);
   inset: 0;
   width: 100%;
   height: 100dvh;
-  background-color: rgba(0 0 0 / 85%);
   z-index: 10;
+}
+
+.modal-backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0 0 0 / 85%);
 }
 
 .image-modal-image {
@@ -259,17 +273,7 @@ const handleCloseModal = () => (showImageModal.value = false);
   object-fit: contain;
   border-radius: var(--rounded);
   filter: drop-shadow(5px 5px 25px rgba(0 0 0 / 50%));
-  opacity: 0;
-  transform: scale(0.9);
-  animation: grow 150ms linear forwards;
   z-index: 10;
-}
-
-@keyframes grow {
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 .close-modal-button {
@@ -316,6 +320,12 @@ const handleCloseModal = () => (showImageModal.value = false);
   height: 55px;
   border: 5px solid white;
   border-radius: 50%;
+  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.next-btn:active,
+.prev-btn:active {
+  transform: scale(0.95);
 }
 
 .pagination-btns img {
@@ -367,7 +377,7 @@ const handleCloseModal = () => (showImageModal.value = false);
     justify-content: center;
     border: none;
     min-height: 0;
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     border-top: 1px solid #aaaaaa;
     border-bottom: 1px solid #aaaaaa;
     margin: 0 auto 1.5rem auto;
@@ -375,7 +385,7 @@ const handleCloseModal = () => (showImageModal.value = false);
 
   .nav-button {
     margin: 0 auto;
-    transform: scale(0.6);
+    transform: scale(0.75);
   }
 }
 </style>
