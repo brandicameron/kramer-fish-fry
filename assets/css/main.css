@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;900&display=swap');
 
 :root {
-  --primary: #1185d8;
-  --secondary: #bedff4;
+  --primary: #006fd0;
+  /* --primary: #1185d8; */
+  --secondary: #a9d2eb;
+  /* --secondary: #bedff4; */
   --black: #000000;
   --white: #f1f1f1;
   --textShadow: 1px 1.5px #ffffff70;
@@ -146,6 +148,10 @@ li {
 
 .font-default {
   font-family: 'Public Sans', sans-serif;
+}
+
+.hide {
+  display: none;
 }
 
 .sr-only:not(:focus) {

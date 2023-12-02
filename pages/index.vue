@@ -1,7 +1,8 @@
 <template>
   <div>
     <HomeBanner />
-    <!-- <HistorySection /> -->
+    <HistorySection />
+    <FishingQuote />
   </div>
 </template>
 

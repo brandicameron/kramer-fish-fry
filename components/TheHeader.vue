@@ -14,7 +14,7 @@
 
     <nav class="nav">
       <NuxtLink class="nav-link home" to="/">Home</NuxtLink>
-      <NuxtLink class="nav-link" to="#history">History</NuxtLink>
+      <NuxtLink class="nav-link" to="/#history">History</NuxtLink>
       <NuxtLink class="nav-link" to="photos">Photos</NuxtLink>
       <!-- <NuxtLink class="nav-link" to="family-tree">Family Tree</NuxtLink> -->
     </nav>

@@ -1,5 +1,5 @@
 <template>
-  <section class="banner">
+  <section class="banner-section">
     <div class="header">
       <h1 class="title section-x-padding">
         <span class="sr-only">Kramer Fish Fry</span>
@@ -32,11 +32,11 @@
       <div class="gilbert">
         <img src="/images/smoke.gif" alt="" class="smoke" />
         <img
-          src="/images/gilbert.png"
+          src="/images/gilbert-2.png"
           alt="Alois Kramer"
           class="gilbert-img"
-          width="420"
-          height="822"
+          width="390"
+          height="827"
         />
       </div>
     </section>
@@ -46,10 +46,11 @@
 <script setup></script>
 
 <style scoped>
-.banner {
+.banner-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20rem;
 }
 
 .header {
@@ -168,7 +169,10 @@
   filter: brightness(1.25);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1150px) {
+  .banner-section {
+    padding-bottom: 18rem;
+  }
   .last-held {
     max-width: 425px;
     width: 100%;
@@ -185,7 +189,7 @@
 
   .gilbert {
     position: relative;
-    width: 90vw;
+    width: 60vw;
     top: 0;
     right: unset;
     margin: 0 auto;
@@ -197,6 +201,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .banner-section {
+    padding-bottom: 12rem;
+  }
+
   .header {
     margin-top: 0;
   }
@@ -204,6 +212,15 @@
     top: 100px;
     background-position: top;
     animation: float 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  }
+
+  .gilbert::before {
+    position: absolute;
+    content: url('/images/gilbert-name.svg');
+    width: 40%;
+    top: 40%;
+    right: -10%;
+    transform: rotate(-20deg);
   }
 }
 </style>

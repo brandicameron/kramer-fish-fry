@@ -20,24 +20,22 @@
         </button>
       </nav>
 
-      <TransitionGroup name="fade" tag="div">
-        <ul class="photo-gallery-list" key="photo-gallery-list">
-          <li v-for="(image, index) in galleryImages" :key="image.id">
-            <button @click="handleOpenModal(index)" class="image-button">
-              <NuxtImg
-                class="photo"
-                :src="image.src"
-                :alt="image.alt"
-                quality="80"
-                width="350"
-                height="263"
-                fit="outside"
-                sizes="175px sm:350px"
-                format="webp"
-              />
-            </button>
-          </li>
-        </ul>
+      <TransitionGroup name="fade" tag="ul" class="photo-gallery-list">
+        <li v-for="(image, index) in galleryImages" :key="image.id">
+          <button @click="handleOpenModal(index)" class="image-button">
+            <NuxtImg
+              class="photo"
+              :src="image.src"
+              :alt="image.alt"
+              quality="80"
+              width="350"
+              height="263"
+              fit="outside"
+              sizes="175px sm:350px"
+              format="webp"
+            />
+          </button>
+        </li>
       </TransitionGroup>
     </section>
 
@@ -153,7 +151,7 @@ watch(showImageModal, () => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 250ms;
+  transition: all 350ms;
 }
 
 .fade-enter-from,
